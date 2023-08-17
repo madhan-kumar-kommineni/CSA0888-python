@@ -1,0 +1,21 @@
+def are_isomorphic(s, t):
+    if len(s) != len(t):
+        return False
+    
+    mapping = {}  # To store character mappings
+    
+    for i in range(len(s)):
+        if s[i] in mapping:
+            if mapping[s[i]] != t[i]:
+                return False
+        else:
+            if t[i] in mapping.values():
+                return False
+            mapping[s[i]] = t[i]
+    
+    return True
+print(are_isomorphic("egg", "add"))  
+print(are_isomorphic("foo", "bar"))  
+print(are_isomorphic("paper", "title"))  
+print(are_isomorphic("fry", "sky"))  
+print(are_isomorphic("apples", "apple"))
